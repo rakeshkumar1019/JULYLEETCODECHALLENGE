@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> prisonAfterNDays(vector<int>& cells, int N) {
+        if(N%14==0){
+                N=14;
+        }else{
+                N=N%14;
+        }
+            vector<int> temp(8,0);
+            for(int j=0;j<N;j++){
+                   for(int i=1;i<cells.size()-1;i++){
+                           temp[i]=!(cells[i-1]^cells[i+1]);//i-1 i+1 same 1 /0
+                   }
+                    cells=temp;
+            }
+            return cells;
+            
+    }
+};
