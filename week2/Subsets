@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+             int n=nums.size();//no of value
+            int nosub=pow(2,n)-1;//no of subsets
+            vector<vector<int>>res;
+            for(int i=0;i<=nosub;i++){//no of substes
+                    vector<int>temp;
+                    for(int j=0;j<n;j++){//left shift 0->n-1
+                        if(i &(1<<j))  {
+                             temp.push_back(nums[j]);   
+                        }     
+                    }
+                    //temp 1 valid subset
+                    res.push_back(temp);
+                    
+            }
+            return res;
+    }
+};
